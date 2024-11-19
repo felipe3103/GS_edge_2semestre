@@ -1,9 +1,26 @@
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <PubSubClient.h>
+#include <DHT.h>
+
+// Configurações do Wi-Fi
+const char* ssid = "Wokwi-GUEST";  // Nome da rede Wi-Fi
+const char* password = "";         // Senha da rede (Wokwi-GUEST não requer senha)
+
+// Configurações do broker MQTT (FIWARE)
+const char* mqtt_server = "871899c0f1664ed98672180cb901ec01.s1.eu.hivemq.cloud";
+const int mqtt_port = 8883;
+const char* mqtt_topic = "/agriculture/solar/data";
+const char* mqtt_user = "GS_edge";  // Substitua pelo seu usuário MQTT
+const char* mqtt_pass = "Fetica31@";   // Substitua pela sua senha MQTT
+
+// Configurações do sensor DHT
 #define DHTPIN 4       // Pino onde o sensor está conectado
 #define DHTTYPE DHT22  // Tipo do sensor (DHT11 ou DHT22)
 DHT dht(DHTPIN, DHTTYPE);
 
 // Cliente Wi-Fi e MQTT
-WiFiClient espClient;
+WiFiClientSecure espClient;  // Suporte a TLS
 PubSubClient client(espClient);
 
 // Função para conectar ao Wi-Fi
@@ -47,6 +64,9 @@ void setup() {
   dht.begin();
 
   connectWiFi();
+
+  // Configurações para TLS (inseguro, apenas para testes)
+  espClient.setInsecure(); // Remove verificação de certificado
 
   client.setServer(mqtt_server, mqtt_port);
 }
