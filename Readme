@@ -1,1 +1,48 @@
-https://wokwi.com/projects/414944481044575233
+# ☀️ Dashboard de Sensores para Placa de Energia Solar ☀️
+
+## 🚀 Descrição
+Este projeto monitora os sensores de uma **placa de energia solar** conectada a um ESP32, exibindo os dados em um **Dashboard interativo** desenvolvido com **Dash**. Ele coleta informações em tempo real sobre **temperatura**, **umidade** e **luminosidade**, otimizando o acompanhamento do desempenho do sistema solar.
+
+## 🛠️ Funcionalidades
+- **ESP32**:
+  - Coleta dados do sensor **DHT22** (temperatura e umidade) e de um **LDR** (luminosidade).
+  - Envia os dados via **protocolo MQTT** com conexão segura (TLS).
+- **Dashboard**:
+  - Exibe gráficos dinâmicos e atualizados em tempo real (a cada 5 segundos).
+  - Armazena e organiza os dados mais recentes.
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+- **Hardware**: ESP32, sensor DHT22, LDR.
+- **Protocolo**: MQTT com conexão segura (TLS).
+- **Frontend**: Dash + Plotly para visualização interativa.
+- **Simulação**: Wokwi (para testes do firmware do ESP32).
+
+---
+
+## 🌐 Links Importantes
+- **Simulação ESP32**: [Wokwi Simulation](https://wokwi.com/projects/414944481044575233)  
+- **Dashboard (Localhost)**: [Acessar o Dashboard](http://127.0.0.1:8050/)
+
+---
+
+## 🖥️ Configuração do Projeto
+1. **ESP32**:
+   - Configure as credenciais de rede Wi-Fi (SSID e senha).
+   - Certifique-se de enviar os dados no tópico MQTT: `/agriculture/solar/data`.
+
+2. **Dashboard**:
+   - Instale as dependências necessárias: `Dash`, `Plotly`, `Paho MQTT`.
+   - Execute o arquivo Python para iniciar o servidor local e acessar o Dashboard.
+
+---
+
+## 👨‍💻 Equipe
+- **Gustavo Henrique Martins** - RM: 556956  
+- **Felipe Fernandes** - RM: 554598  
+- **Henrique Ignacio Bartalo** - RM: 555274  
+
+--- 
+
+> 🌞 Projeto desenvolvido para otimizar o monitoramento de placas de energia solar, unindo tecnologia IoT e visualização interativa para um futuro mais sustentável! 🌍🔋
